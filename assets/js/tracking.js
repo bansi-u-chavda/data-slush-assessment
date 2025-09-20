@@ -1,17 +1,17 @@
-// assets/js/tracking.js
+
 (function(){
   'use strict';
-  // ensure dataLayer exists
+ 
   window.dataLayer = window.dataLayer || [];
 
-  // NAV CLICK TRACKING (required)
+ 
   function setupNavClicks(){
     var links = document.querySelectorAll('a[data-section], nav a');
     links.forEach(function(a){
       a.addEventListener('click', function(e){
         // allow normal anchor smooth scroll behavior but also track
         var sectionName = this.dataset.section || this.getAttribute('href').replace('#','');
-        // push nav_click event
+    
         window.dataLayer.push({
           event: 'nav_click',
           section_name: sectionName
@@ -21,7 +21,7 @@
     });
   }
 
-  // SCROLL DEPTH TRACKING (required)
+
   function setupScrollDepth(){
     var milestones = [25,50,75,100];
     var fired = new Set();
@@ -53,7 +53,6 @@
     }, {passive:true});
   }
 
-  // CTA BUTTON TRACKING (extra but useful)
   function setupCTA(){
     var ctas = document.querySelectorAll('[data-cta]');
     ctas.forEach(function(btn){
@@ -68,7 +67,7 @@
     });
   }
 
-  // OUTBOUND LINKS (extra)
+  
   function setupOutboundLinks(){
     var outs = document.querySelectorAll('a[data-outbound]');
     outs.forEach(function(a){
@@ -83,26 +82,26 @@
     });
   }
 
-  // CONTACT FORM SUBMIT (extra)
+ 
   function setupContactForm(){
     var form = document.getElementById('contactForm');
     if(!form) return;
     form.addEventListener('submit', function(e){
       e.preventDefault();
-      // gather some safe non-PII info (we won't push names/emails to dataLayer)
+     
       var messageLen = (form.message && form.message.value) ? form.message.value.length : 0;
       window.dataLayer.push({
         event: 'contact_submit',
         msg_length: messageLen
       });
       console.log('DL: contact_submit -> length', messageLen);
-      // Simulate success (you can actually send to backend if you want)
+      
       alert('Thank you! Message recorded for demo purposes.');
       form.reset();
     });
   }
 
-  // DOM ready
+ 
   document.addEventListener('DOMContentLoaded', function(){
     setupNavClicks();
     setupScrollDepth();
