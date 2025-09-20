@@ -124,7 +124,7 @@ The `/screenshots/` folder contains:
 
 ## Deliverables
 
-- **GitHub Repository:** https://github.com/bansi-u-chavda/dataslush-analytics-assessment
+- **GitHub Repository:** https://github.com/bansi-u-chavda/data-slush-assessment
 - **Looker Studio Dashboard:** https://lookerstudio.google.com/reporting/6b5b3932-a9ba-4bee-966c-7a7c966bc258
 - **GTM Container:** GTM-58XP7S39 (exported as JSON)
 - **GA4 Property:** DataSlush Website (G-B8VFYN3KMX)
